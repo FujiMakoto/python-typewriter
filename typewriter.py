@@ -1,6 +1,12 @@
 import sys
 from time import sleep
 
+__author__     = "Makoto Fujimoto"
+__copyright__  = 'Copyright 2015, Makoto Fujimoto'
+__license__    = "MIT"
+__version__    = "1.0"
+__maintainer__ = "Makoto Fujimoto"
+
 
 def typewrite(message, max_time=3, min_time=None, base=0.075, end='\n', **kwargs):
     """
