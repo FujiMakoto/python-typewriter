@@ -9,10 +9,10 @@ def typewrite(message, max_time=3, min_time=None, base=0.075, end='\n', **kwargs
     :type  message: str
 
     :param max_time: The maximum amount of time printing a message should take
-    :type  max_time: int or float
+    :type  max_time: int, float or None
 
     :param min_time: The minimum amount of time printing a message should take
-    :type  min_time: int or float
+    :type  min_time: int, float or None
 
     :param base: The base pause time between each character
     :type  base: int or float
@@ -48,10 +48,10 @@ def typewrite(message, max_time=3, min_time=None, base=0.075, end='\n', **kwargs
     total_time = sum(c[1] for c in characters)
 
     # If our total time is too long or too short, adjust our base time per character accordingly
-    if total_time > max_time:
+    if (max_time is not None) and (total_time > max_time):
         difference = 1 - ((total_time - max_time) / total_time)
         characters = [(c, p * difference, t) for (c, p, t) in characters]
-    elif total_time < min_time:
+    elif (min_time is not None) and (total_time < min_time):
         difference = 1 + ((min_time - total_time) / total_time)
         characters = [(c, p * difference, t) for (c, p, t) in characters]
 
