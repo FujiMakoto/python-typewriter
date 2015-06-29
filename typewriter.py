@@ -68,4 +68,4 @@ def typewrite(message, max_time=3, min_time=None, base=0.075, end='\n', **kwargs
         sleep(pause)
 
     if end:
-        print(end)
+        print(end, end='')
